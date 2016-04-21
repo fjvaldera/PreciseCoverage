@@ -64,12 +64,12 @@ static PreciseCoverage *sharedPlugin;
         }
         label.frame = ({
             CGRect frame = instance.bounds;
-            frame.size.width -= 4;
             frame.size.height -= 4;
             frame.origin.y -= 2;
+            frame.origin.x += 2;
             frame;
         });
-        NSString *string = [NSString stringWithFormat:@"%.0f%%", newValue];
+        NSString *string = [NSString stringWithFormat:@"%.2f%%", newValue];
         label.alignment = NSTextAlignmentRight;
         label.stringValue = string;
     } error:nil];
@@ -79,7 +79,7 @@ static PreciseCoverage *sharedPlugin;
         NSRect frame = [[info instance] bounds];
         frame = CGRectInset(frame, 4, 6);
         frame.origin.y -= 2;
-        frame.size.width -= 35;
+        frame.size.width -= 40;
         
         const CGFloat radius = 4;
         
